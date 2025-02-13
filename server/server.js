@@ -18,12 +18,10 @@ app.use(cors());
 app.use(
   cors({
     origin: [
-      "https://multivendor-deploy.vercel.app",
-      "https://multivendor-deploy-famu.vercel.app",
+      "https://multivendor-deploy.vercel.app/",
+      "https://multivendor-deploy-famu.vercel.app/",
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    optionsSuccessStatus: 200,
+
     credentials: true,
   })
 );
@@ -31,12 +29,10 @@ app.use(
 const io = socket(server, {
   cors: {
     origin: [
-      "https://multivendor-deploy.vercel.app",
-      "https://multivendor-deploy-famu.vercel.app",
+      "https://multivendor-deploy.vercel.app/",
+      "https://multivendor-deploy-famu.vercel.app/",
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    optionsSuccessStatus: 200,
+
     credentials: true,
   },
 });
