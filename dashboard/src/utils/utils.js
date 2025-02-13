@@ -7,4 +7,4 @@ export const overrideStyle = {
   alignItems: "center",
 };
 
-export const socket = io("https://multivendor-server-z8kg.onrender.com");
+export const socket = io("https://kehagerbet.onrender.com");

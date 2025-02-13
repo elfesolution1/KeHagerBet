@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const local = "http://localhost:5000";
-// const production = "https://multivendor-server-z8kg.onrender.com";
+// const production = "https://kehagerbet.onrender.com";
 
 // let apiUrl = "";
 // let mode = "pro";
@@ -13,8 +13,8 @@ import axios from "axios";
 // }
 
 export const API = axios.create({
-  baseURL: `https://multivendor-server-z8kg.onrender.com/api`,
+  baseURL: `https://kehagerbet.onrender.com/api`,
   withCredentials: true,
 });
 
-export const baseURL = "https://multivendor-server-z8kg.onrender.com";
+export const baseURL = "https://kehagerbet.onrender.com";
