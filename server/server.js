@@ -34,7 +34,7 @@ const corsOptions = {
 app.use(cors(corsOptions)); 
 app.options("*", cors(corsOptions)); 
 
-const io = new Server(server, {
+const io = socket(server, {
   cors: corsOptions, 
 });
 
