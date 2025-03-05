@@ -15,40 +15,27 @@ const server = http.createServer(app);
 
 app.use(cors());
 
-app.use(
-  cors({
-    origin: [
-      "https://multivendor-deploy.vercel.app/",
-      "https://multivendor-deploy-famu.vercel.app/",
-    ],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    allowedHeaders: [
-      "Origin",
-      "Content-Type",
-      "Accept",
-      "Authorization",
-      "X-Request-With",
-    ],
-  })
-);
+const corsOptions = {
+  origin: [
+    "https://multivendor-deploy.vercel.app/",
+    "https://multivendor-deploy-famu.vercel.app/",
+  ],
+  credentials: true, 
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"], 
+  allowedHeaders: [
+    "Origin",
+    "Content-Type",
+    "Accept",
+    "Authorization",
+    "X-Request-With",
+  ], 
+};
 
-const io = socket(server, {
-  cors: {
-    origin: [
-      "https://multivendor-deploy.vercel.app/",
-      "https://multivendor-deploy-famu.vercel.app/",
-    ],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    allowedHeaders: [
-      "Origin",
-      "Content-Type",
-      "Accept",
-      "Authorization",
-      "X-Request-With",
-    ],
-  },
+app.use(cors(corsOptions)); 
+app.options("*", cors(corsOptions)); 
+
+const io = new Server(server, {
+  cors: corsOptions, 
 });
 
 var allCustomer = [];
