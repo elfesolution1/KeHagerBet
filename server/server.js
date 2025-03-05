@@ -32,14 +32,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions)); 
-
-app.options("*", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "https://multivendor-deploy-famu.vercel.app");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization, X-Request-With");
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.sendStatus(204); // No content
-});
+app.options("*", cors(corsOptions));
 
 const io = socket(server, {
   cors: corsOptions, 
