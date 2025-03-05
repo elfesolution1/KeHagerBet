@@ -21,16 +21,15 @@ app.use(
       "https://multivendor-deploy.vercel.app/",
       "https://multivendor-deploy-famu.vercel.app/",
     ],
-
     credentials: true,
-    methods: [“GET”, “POST”, “PUT”, “DELETE”, “PATCH”, “OPTIONS”],
-allowedHeaders: [
-“Origin”,
-“Content-Type”,
-“Accept”,
-“Authorization”,
-“X-Request-With”,
-],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: [
+      "Origin",
+      "Content-Type",
+      "Accept",
+      "Authorization",
+      "X-Request-With",
+    ],
   })
 );
 
@@ -40,16 +39,15 @@ const io = socket(server, {
       "https://multivendor-deploy.vercel.app/",
       "https://multivendor-deploy-famu.vercel.app/",
     ],
-
     credentials: true,
-    methods: [“GET”, “POST”, “PUT”, “DELETE”, “PATCH”, “OPTIONS”],
-allowedHeaders: [
-“Origin”,
-“Content-Type”,
-“Accept”,
-“Authorization”,
-“X-Request-With”,
-],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: [
+      "Origin",
+      "Content-Type",
+      "Accept",
+      "Authorization",
+      "X-Request-With",
+    ],
   },
 });
 
