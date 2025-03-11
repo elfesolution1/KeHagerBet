@@ -17,8 +17,8 @@ const server = http.createServer(app);
 // CORS configuration
 const corsOptions = {
   origin: [
-    "https://multivendor-deploy.vercel.app/",
-    "https://multivendor-deploy-famu.vercel.app/",
+    "https://multivendor-deploy.vercel.app",
+    "https://multivendor-deploy-famu.vercel.app",
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
