@@ -1,3 +1,4 @@
+
 const express = require("express");
 const { dbConnect } = require("./utils/db");
 const app = express();
@@ -13,29 +14,21 @@ const _dirname = path.resolve(path.dirname(""));
 
 const server = http.createServer(app);
 
-app.use(cors());
-
+// CORS configuration
 const corsOptions = {
   origin: [
     "https://multivendor-deploy.vercel.app/",
     "https://multivendor-deploy-famu.vercel.app/",
   ],
-  credentials: true, 
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"], 
-  allowedHeaders: [
-    "Origin",
-    "Content-Type",
-    "Accept",
-    "Authorization",
-    "X-Request-With",
-  ], 
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
-app.use(cors(corsOptions)); 
-app.options("*", cors(corsOptions));
+app.use(cors(corsOptions));
 
 const io = socket(server, {
-  cors: corsOptions, 
+  cors: corsOptions,
 });
 
 var allCustomer = [];
