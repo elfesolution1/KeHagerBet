@@ -6,7 +6,8 @@ module.exports.authMiddleware = async (req, res, next) => {
 
   // Check if accessToken exists
   if (!accessToken) {
-    return res.status(409).json({ error: "Please login first" });
+    console.error("No token provided");
+    return res.status(401).json({ error: "Please login first" });
   }
 
   // Verify SECRET environment variable
@@ -18,6 +19,7 @@ module.exports.authMiddleware = async (req, res, next) => {
   try {
     // Verify the token
     const deCodeToken = await jwt.verify(accessToken, process.env.SECRET);
+    console.log("Decoded token:", deCodeToken);
     req.role = deCodeToken.role;
     req.id = deCodeToken.id;
     next();
@@ -27,14 +29,14 @@ module.exports.authMiddleware = async (req, res, next) => {
     // Handle specific JWT errors
     if (error.name === "TokenExpiredError") {
       return res
-        .status(409)
+        .status(401)
         .json({ error: "Token expired. Please login again." });
     } else if (error.name === "JsonWebTokenError") {
       return res
-        .status(409)
+        .status(401)
         .json({ error: "Invalid token. Please login again." });
     } else {
-      return res.status(409).json({ error: "Please login" });
+      return res.status(401).json({ error: "Please login" });
     }
   }
 };
