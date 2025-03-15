@@ -19,6 +19,8 @@ const corsOptions = {
   origin: [
     "https://multivendor-deploy.vercel.app",
     "https://multivendor-deploy-famu.vercel.app",
+    "http://localhost:3000",
+
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
